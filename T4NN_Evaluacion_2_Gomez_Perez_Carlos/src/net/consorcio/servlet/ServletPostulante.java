@@ -1,6 +1,12 @@
 package net.consorcio.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,9 +52,21 @@ public class ServletPostulante extends HttpServlet {
 	}
 
 
-	private void listar(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
+	private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		List<Postulante> lista=servicioPostulante.listar();
+		JsonArrayBuilder arreglo=Json.createArrayBuilder();
+		for(Postulante bean: lista) {
+			JsonObject obj=Json.createObjectBuilder().add("codigo", bean.getCodigo()).
+													  add("nombres", bean.getNombre()).
+													  add("apellido", bean.getApellido()).
+													  add("dni", bean.getDniPostulante()).
+													  add("hijos", bean.getNumHijos()).build();
+
+			arreglo.add(obj);
+		}
+		response.setContentType("application/json;charset=UTF-8");
+		PrintWriter salida=response.getWriter();
+		salida.println(arreglo.build());
 	}
 
 

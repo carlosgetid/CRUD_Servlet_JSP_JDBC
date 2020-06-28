@@ -37,11 +37,12 @@
 		    																placeholder="Ingresar edad">
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">NumeroHijos</label>
+		    <label for="exampleInputEmail1">Numero de Hijos</label>
 		    <input type="text" class="form-control" name="hijos" aria-describedby="emailHelp" 
 		    																placeholder="Ingresar edad">
 		  </div>
 		  <button type="submit" class="btn btn-primary">Grabar</button>
+		  <button type="button" class="btn btn-success">Listar</button>
 		</form>
 	</div>	
 	
@@ -57,6 +58,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
   	
-  		
+  	<script >
+  	$(".btn-success").click(function(){
+		window.location.href='listado.jsp';
+	})
+  	</script>
 </body>
 </html>
