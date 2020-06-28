@@ -59,15 +59,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
   	
   	<script>
-  	$(".btn-primary").click(function(){
-		$("#id_registrar").attr("action","ServletPostulante?accion=ACTUALIZAR");
-		id_registrar.submit();
-	})
-	$(".btn-danger").click(function(){
-		//var cod=$("#idCodigo").val();
-		$("#id_registrar").attr("action","ServletPostulante?accion=ELIMINAR");
-		id_registrar.submit();
-	})
   	$(".btn-success").click(function(){
 		window.location.href='listado.jsp';
 	})
