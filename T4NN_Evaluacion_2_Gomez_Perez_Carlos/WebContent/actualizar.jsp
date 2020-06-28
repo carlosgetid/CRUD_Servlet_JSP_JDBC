@@ -85,31 +85,41 @@
 	    rules: {
 	    	nombre:{
 	    		required:true,
-	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,15}'
+	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,30}'
 	    	},
 	    	apellido:{
 	    		required:true,
-	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,15}'
+	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,30}'
 	    	},
-	    	edad:{
+	    	dni:{
 	    		required:true,
 	    		digits:true,
-	    		pattern:'\\d{2}'
+	    		pattern:'\\d{8}'
+	    	},
+	    	hijos:{
+	    		required:true,
+	    		digits:true,
+	    		pattern:'\\d{1}'
 	    	}
 	    },
 	    messages:{
 	    	nombre:{
 	    		required:'Ingresar nombre',
-	    		pattern:'Campo nombre solo letras'
+	    		pattern:'Campo nombre 30 letras como maximo'
 	    	},
 	    	apellido:{
 	    		required:'ingresar apellido',
-	    		pattern:'Campo apellido solo letras'
+	    		pattern:'Campo apellido 30 letras como maximo'
 	    	},
-	    	edad:{
-	    		required:'ingresar edad',
+	    	dni:{
+	    		required:'ingresar dni',
 	    		digits:'ingresar solo digitos',
-	    		pattern:'Campo edad maximo 2 digitos'
+	    		pattern:'Campo dni debe tener 8 digitos'
+	    	},
+	    	hijos:{
+	    		required:'ingresar dni',
+	    		digits:'ingresar solo digitos',
+	    		pattern:'Campo Hijos debe tener solo 1 cifra'
 	    	}
 	    },
 	    errorElement: 'span',
@@ -124,6 +134,6 @@
 	        $(element).removeClass('is-invalid');
 	    },
 	})
-	</script>		
+	</script>				
 </body>
 </html>

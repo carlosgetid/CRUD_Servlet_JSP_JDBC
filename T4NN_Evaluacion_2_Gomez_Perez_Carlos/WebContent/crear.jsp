@@ -58,6 +58,77 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
   	
+  	<script>
+  	$(".btn-primary").click(function(){
+		$("#id_registrar").attr("action","ServletPostulante?accion=ACTUALIZAR");
+		id_registrar.submit();
+	})
+	$(".btn-danger").click(function(){
+		//var cod=$("#idCodigo").val();
+		$("#id_registrar").attr("action","ServletPostulante?accion=ELIMINAR");
+		id_registrar.submit();
+	})
+  	$(".btn-success").click(function(){
+		window.location.href='listado.jsp';
+	})
+  	</script>
+  	
+  	<script>    
+	  $('#id_registrar').validate({
+	    rules: {
+	    	nombre:{
+	    		required:true,
+	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,30}'
+	    	},
+	    	apellido:{
+	    		required:true,
+	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,30}'
+	    	},
+	    	dni:{
+	    		required:true,
+	    		digits:true,
+	    		pattern:'\\d{8}'
+	    	},
+	    	hijos:{
+	    		required:true,
+	    		digits:true,
+	    		pattern:'\\d{1}'
+	    	}
+	    },
+	    messages:{
+	    	nombre:{
+	    		required:'Ingresar nombre',
+	    		pattern:'Campo nombre 30 letras como maximo'
+	    	},
+	    	apellido:{
+	    		required:'ingresar apellido',
+	    		pattern:'Campo apellido 30 letras como maximo'
+	    	},
+	    	dni:{
+	    		required:'ingresar dni',
+	    		digits:'ingresar solo digitos',
+	    		pattern:'Campo dni debe tener 8 digitos'
+	    	},
+	    	hijos:{
+	    		required:'ingresar dni',
+	    		digits:'ingresar solo digitos',
+	    		pattern:'Campo Hijos debe tener solo 1 cifra'
+	    	}
+	    },
+	    errorElement: 'span',
+	    errorPlacement: function (error, element) {
+	        error.addClass('invalid-feedback');
+	        element.closest('.form-group').append(error);
+	    },
+	    highlight: function (element, errorClass, validClass) {
+	        $(element).addClass('is-invalid');
+	    },
+	    unhighlight: function (element, errorClass, validClass) {
+	        $(element).removeClass('is-invalid');
+	    },
+	})
+	</script>		
+  	
   	<script >
   	$(".btn-success").click(function(){
 		window.location.href='listado.jsp';
