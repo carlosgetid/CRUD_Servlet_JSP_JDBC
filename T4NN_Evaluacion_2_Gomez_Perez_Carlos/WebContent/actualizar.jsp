@@ -19,7 +19,7 @@
 		</div>
 	</c:if>
 	<div class="container">
-  		<form action="ServletPostulante?accion=ACTUALIZAR" method="post" id="id_registrar">
+  		<form action="" method="post" id="id_registrar">
 	  		<div class="form-group">
 			    <label for="exampleInputEmail1">Código</label>
 			    <input type="text" class="form-control" 
@@ -47,7 +47,7 @@
 		    																placeholder="Ingresar Numero de hijos">
 		  </div>
 		  <button type="button" class="btn btn-primary">Actualizar</button>
-		  <button type="button" class="btn btn-warning">Eliminar</button>
+		  <button type="button" class="btn btn-danger">Eliminar</button>
 		  <button type="button" class="btn btn-success">Listar</button>
 		   
 		</form>
@@ -70,13 +70,13 @@
 		$("#id_registrar").attr("action","ServletPostulante?accion=ACTUALIZAR");
 		id_registrar.submit();
 	})
-	$(".btn-warning").click(function(){
+	$(".btn-danger").click(function(){
 		//var cod=$("#idCodigo").val();
 		$("#id_registrar").attr("action","ServletPostulante?accion=ELIMINAR");
 		id_registrar.submit();
 	})
   	$(".btn-success").click(function(){
-		window.location.href='lista.jsp';
+		window.location.href='listado.jsp';
 	})
   	</script>
   	

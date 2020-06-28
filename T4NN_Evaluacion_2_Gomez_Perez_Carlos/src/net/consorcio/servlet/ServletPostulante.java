@@ -80,9 +80,18 @@ public class ServletPostulante extends HttpServlet {
 	}
 
 
-	private void eliminar(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod;
+		cod=request.getParameter("codigo");
+		int salida = servicioPostulante.eliminar(Integer.parseInt(cod));
+
+		if(salida != -1)
+			request.setAttribute("MENSAJE", "Se eliminó correctamente");
+		else
+			request.setAttribute("MENSAJE", "Error al eliminar");
 		
+		request.getRequestDispatcher("/actualizar.jsp").forward(request, response);
+
 	}
 
 
