@@ -19,7 +19,7 @@
 			    <thead>
 			        <tr>
 			            <th>Código</th>
-			            <th>Nombres</th>
+			            <th>Nombre</th>
 			            <th>Apellido</th>
 			            <th>DNI</th>
 			            <th>NumeroHijos</th>
@@ -50,13 +50,13 @@
 	
 	function tabla(){
 		$.getJSON("ServletPostulante",{accion:"LISTAR"},function(response){
-			//bucle para realizar recorrido sobre response
+			
 			$.each(response,function(index,item){
 				var editar="<a href='ServletPostulante?accion=BUSCAR&codigo="+item.codigo+"'>Editar</a>";
 				
-				$("#table_id").append("<tr><td>"+item.codigo +"</td><td>"+
-												 item.nombres +"</td><td>"+
-												 item.apellido +"</td><td>"+
+				$("#table_id").append("<tr><td>"+item.codigo+"</td><td>"+
+												 item.nombre+"</td><td>"+
+												 item.apellido+"</td><td>"+
 												 item.dni+"</td><td>"+
 												 item.hijos+"</td><td>"+
 												 editar+"</td></tr>")

@@ -57,7 +57,7 @@ public class ServletPostulante extends HttpServlet {
 		JsonArrayBuilder arreglo=Json.createArrayBuilder();
 		for(Postulante bean: lista) {
 			JsonObject obj=Json.createObjectBuilder().add("codigo", bean.getCodigo()).
-													  add("nombres", bean.getNombre()).
+													  add("nombre", bean.getNombre()).
 													  add("apellido", bean.getApellido()).
 													  add("dni", bean.getDniPostulante()).
 													  add("hijos", bean.getNumHijos()).build();
@@ -70,9 +70,16 @@ public class ServletPostulante extends HttpServlet {
 	}
 
 
-	private void buscar(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		Postulante bean;
+		String cod;
+		cod=request.getParameter("codigo");
+		bean=servicioPostulante.buscar(Integer.parseInt(cod));
+
+		request.setAttribute("postulante", bean);
+		
+		request.getRequestDispatcher("/actualizar.jsp").forward(request, response);
 	}
 
 

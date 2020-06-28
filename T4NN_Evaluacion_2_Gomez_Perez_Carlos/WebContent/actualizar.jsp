@@ -5,12 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Crear</title>
+<title>Actualizar</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
 	<c:if test="${requestScope.MENSAJE!=null}">
 		<div class="alert alert-warning alert-dismissible fade show" role="alert">
 		  <strong>${requestScope.MENSAJE}</strong>
@@ -19,30 +18,38 @@
 		  </button>
 		</div>
 	</c:if>
-	
 	<div class="container">
-  		<form action="ServletPostulante?accion=REGISTRAR" method="post" id="id_registrar">
+  		<form action="ServletPostulante" method="post" id="id_registrar">
+	  		<div class="form-group">
+			    <label for="exampleInputEmail1">Código</label>
+			    <input type="text" class="form-control" 
+			    		name="codigo" aria-describedby="emailHelp" 
+			    		value="${postulante.codigo}"
+			    		placeholder="Ingresar Código">
+			  </div>
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Nombre</label>
-		    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp" 
+		    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp" value="${postulante.nombre}"
 		    																placeholder="Ingresar nombres">
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputPassword1">Apellido</label>
-		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellidos">
+		    <label for="exampleInputPassword1">Apellidos</label>
+		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellidos" value="${postulante.apellido}">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">DNI</label>
-		    <input type="text" class="form-control" name="dni" aria-describedby="emailHelp" 
+		    <input type="text" class="form-control" name="dni" aria-describedby="emailHelp" value="${postulante.dni}"
 		    																placeholder="Ingresar edad">
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Numero de Hijos</label>
-		    <input type="text" class="form-control" name="hijos" aria-describedby="emailHelp" 
+		    <label for="exampleInputEmail1">Numero de hijos</label>
+		    <input type="text" class="form-control" name="hijos" aria-describedby="emailHelp" value="${postulante.hijos}"
 		    																placeholder="Ingresar edad">
 		  </div>
-		  <button type="submit" class="btn btn-primary">Grabar</button>
+		  <button type="button" class="btn btn-primary">Actualizar</button>
+		  <button type="button" class="btn btn-warning">Eliminar</button>
 		  <button type="button" class="btn btn-success">Listar</button>
+		   
 		</form>
 	</div>	
 	
@@ -58,10 +65,65 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
   	
-  	<script >
+  	<script>
+  	$(".btn-primary").click(function(){
+		$("#id_registrar").attr("action","ServletPostulante?accion=ACTUALIZAR");
+		id_registrar.submit();
+	})
+	$(".btn-warning").click(function(){
+		//var cod=$("#idCodigo").val();
+		$("#id_registrar").attr("action","ServletPostulante?accion=ELIMINAR");
+		id_registrar.submit();
+	})
   	$(".btn-success").click(function(){
-		window.location.href='listado.jsp';
+		window.location.href='lista.jsp';
 	})
   	</script>
+  	
+  	<script>    
+	  $('#id_registrar').validate({
+	    rules: {
+	    	nombre:{
+	    		required:true,
+	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,15}'
+	    	},
+	    	apellido:{
+	    		required:true,
+	    		pattern:'[a-zA-Z\\s\\Ñ\\ñ]{3,15}'
+	    	},
+	    	edad:{
+	    		required:true,
+	    		digits:true,
+	    		pattern:'\\d{2}'
+	    	}
+	    },
+	    messages:{
+	    	nombre:{
+	    		required:'Ingresar nombre',
+	    		pattern:'Campo nombre solo letras'
+	    	},
+	    	apellido:{
+	    		required:'ingresar apellido',
+	    		pattern:'Campo apellido solo letras'
+	    	},
+	    	edad:{
+	    		required:'ingresar edad',
+	    		digits:'ingresar solo digitos',
+	    		pattern:'Campo edad maximo 2 digitos'
+	    	}
+	    },
+	    errorElement: 'span',
+	    errorPlacement: function (error, element) {
+	        error.addClass('invalid-feedback');
+	        element.closest('.form-group').append(error);
+	    },
+	    highlight: function (element, errorClass, validClass) {
+	        $(element).addClass('is-invalid');
+	    },
+	    unhighlight: function (element, errorClass, validClass) {
+	        $(element).removeClass('is-invalid');
+	    },
+	})
+	</script>		
 </body>
 </html>
