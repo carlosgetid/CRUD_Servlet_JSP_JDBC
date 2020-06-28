@@ -19,7 +19,7 @@
 		</div>
 	</c:if>
 	<div class="container">
-  		<form action="ServletPostulante" method="post" id="id_registrar">
+  		<form action="ServletPostulanteaccion=BUSCAR" method="post" id="id_registrar">
 	  		<div class="form-group">
 			    <label for="exampleInputEmail1">Código</label>
 			    <input type="text" class="form-control" 
