@@ -21,7 +21,7 @@ public class MySqlPostulanteDAO implements PostulanteDAO {
 		ResultSet rs=null;
 		try {
 			cn=MySqlBDConexion.getConexion();
-			String sql="select *from tb_postulante where cod=?";
+			String sql="select *from tb_postulante where cod_postulante=?";
 			
 			pstm=cn.prepareStatement(sql);
 			pstm.setInt(1, cod);

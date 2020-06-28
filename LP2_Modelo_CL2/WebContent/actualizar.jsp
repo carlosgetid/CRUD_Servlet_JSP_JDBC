@@ -29,22 +29,17 @@
 			  </div>
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Nombres</label>
-		    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp" value="${postulante.nombre}"
+		    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp" value="${postulante.nombres}"
 		    																placeholder="Ingresar nombres">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputPassword1">Apellidos</label>
-		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellidos" value="${postulante.apellido}">
+		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellidos" value="${postulante.apellidos}">
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">DNI</label>
-		    <input type="text" class="form-control" name="dni" aria-describedby="emailHelp" value="${postulante.dniPostulante}"
-		    																placeholder="Ingresar DNI">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputEmail1">Numero Hijos</label>
-		    <input type="text" class="form-control" name="hijos" aria-describedby="emailHelp" value="${postulante.numHijos}"
-		    																placeholder="Ingresar Numero de hijos">
+		    <label for="exampleInputEmail1">Edad</label>
+		    <input type="text" class="form-control" name="edad" aria-describedby="emailHelp" value="${postulante.edad}"
+		    																placeholder="Ingresar edad">
 		  </div>
 		  <button type="button" class="btn btn-primary">Actualizar</button>
 		  <button type="button" class="btn btn-warning">Eliminar</button>

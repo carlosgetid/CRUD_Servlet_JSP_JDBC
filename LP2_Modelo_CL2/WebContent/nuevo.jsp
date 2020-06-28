@@ -19,37 +19,23 @@
 		</div>
 	</c:if>
 	<div class="container">
-  		<form action="" method="post" id="id_registrar">
-	  		<div class="form-group">
-			    <label for="exampleInputEmail1">Código</label>
-			    <input type="text" class="form-control" 
-			    		name="codigo" aria-describedby="emailHelp" 
-			    		value="${postulante.codigo}"
-			    		placeholder="Ingresar Código">
-			  </div>
+  		<form action="ServletPostulante?accion=REGISTRAR" method="post" id="id_registrar">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Nombres</label>
-		    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp" value="${postulante.nombre}"
+		    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp" 
 		    																placeholder="Ingresar nombres">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputPassword1">Apellidos</label>
-		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellidos" value="${postulante.apellido}">
+		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellidos">
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">DNI</label>
-		    <input type="text" class="form-control" name="dni" aria-describedby="emailHelp" value="${postulante.dniPostulante}"
-		    																placeholder="Ingresar DNI">
+		    <label for="exampleInputEmail1">Edad</label>
+		    <input type="text" class="form-control" name="edad" aria-describedby="emailHelp" 
+		    																placeholder="Ingresar edad">
 		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputEmail1">Numero Hijos</label>
-		    <input type="text" class="form-control" name="hijos" aria-describedby="emailHelp" value="${postulante.numHijos}"
-		    																placeholder="Ingresar Numero de hijos">
-		  </div>
-		  <button type="button" class="btn btn-primary">Actualizar</button>
-		  <button type="button" class="btn btn-warning">Eliminar</button>
+		  <button type="submit" class="btn btn-primary">Grabar</button>
 		  <button type="button" class="btn btn-success">Listar</button>
-		   
 		</form>
 	</div>	
 	
@@ -66,15 +52,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
   	
   	<script>
-  	$(".btn-primary").click(function(){
-		$("#id_registrar").attr("action","ServletPostulante?accion=ACTUALIZAR");
-		id_registrar.submit();
-	})
-	$(".btn-warning").click(function(){
-		//var cod=$("#idCodigo").val();
-		$("#id_registrar").attr("action","ServletPostulante?accion=ELIMINAR");
-		id_registrar.submit();
-	})
   	$(".btn-success").click(function(){
 		window.location.href='lista.jsp';
 	})

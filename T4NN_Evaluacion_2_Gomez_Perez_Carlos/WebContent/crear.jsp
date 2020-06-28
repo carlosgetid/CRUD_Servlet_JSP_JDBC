@@ -25,21 +25,21 @@
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Nombre</label>
 		    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp" 
-		    																placeholder="Ingresar nombres">
+		    																placeholder="Ingresar nombre">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputPassword1">Apellido</label>
-		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellidos">
+		    <input type="text" class="form-control" name="apellido" placeholder="Ingresar apellido">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">DNI</label>
 		    <input type="text" class="form-control" name="dni" aria-describedby="emailHelp" 
-		    																placeholder="Ingresar edad">
+		    																placeholder="Ingresar DNI">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Numero de Hijos</label>
 		    <input type="text" class="form-control" name="hijos" aria-describedby="emailHelp" 
-		    																placeholder="Ingresar edad">
+		    																placeholder="Ingresar Numero de hijos">
 		  </div>
 		  <button type="submit" class="btn btn-primary">Grabar</button>
 		  <button type="button" class="btn btn-success">Listar</button>

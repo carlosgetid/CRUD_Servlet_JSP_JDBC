@@ -71,14 +71,11 @@ public class ServletPostulante extends HttpServlet {
 
 
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		Postulante bean;
 		String cod;
 		cod=request.getParameter("codigo");
 		bean=servicioPostulante.buscar(Integer.parseInt(cod));
-
-		request.setAttribute("postulante", bean);
-		
+		request.setAttribute("postulante",bean);
 		request.getRequestDispatcher("/actualizar.jsp").forward(request, response);
 	}
 
