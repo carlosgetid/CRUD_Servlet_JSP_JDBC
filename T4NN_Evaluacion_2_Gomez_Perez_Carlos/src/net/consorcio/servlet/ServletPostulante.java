@@ -86,9 +86,30 @@ public class ServletPostulante extends HttpServlet {
 	}
 
 
-	private void actualizar(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod,nom, ape, dni, hijos;
+		cod = request.getParameter("codigo");
+		nom = request.getParameter("nombre");
+		ape = request.getParameter("apellido");
+		dni = request.getParameter("dni");
+		hijos = request.getParameter("hijos");
 		
+		Postulante bean = new Postulante();
+		
+		bean.setCodigo(Integer.parseInt(cod));
+		bean.setNombre(nom);
+		bean.setApellido(ape);
+		bean.setDniPostulante(Integer.parseInt(dni));
+		bean.setNumHijos(Integer.parseInt(hijos));
+		
+		int salida = servicioPostulante.actualizar(bean);
+		if(salida != -1)
+			request.setAttribute("MENSAJE", "Se actualizo correctamente");
+		else
+			request.setAttribute("MENSAJE", "Error al actualizar");
+		
+		request.getRequestDispatcher("/actualizar.jsp").forward(request, response);
+
 	}
 
 
